@@ -11,16 +11,34 @@ int main() {
   Tree* RB = new Tree();
   while (stillGoing == true) {
     //ask read, add, print, or quit
-    cout << "Would you like to read, add, delete, print, or quit?" << endl;
+    cout << "Would you like to read, add, delete, print, search, or quit?" << endl;
     char input[20];
     cin.get(input,20);
     cin.get();
-    while (strcmp(input, "read") != 0 && strcmp(input, "add") != 0 && strcmp(input, "print") != 0 && strcmp(input, "quit") != 0 && strcmp(input, "delete") != 0) {
+    while (strcmp(input, "read") != 0 && strcmp(input, "add") != 0 && strcmp(input, "print") != 0 && strcmp(input, "quit") != 0 && strcmp(input, "delete") != 0 && strcmp(input, "search") != 0) {
       cout << "Improper input. Please type 'read', 'add', 'print', or 'quit'" << endl;
       cin.get(input,20);
       cin.get();
     }
-    if (strcmp(input, "read") == 0) {
+    if (strcmp(input, "search") == 0) {
+      cout << "Enter Number: ";
+      int num;
+      cin >> num;
+      cin.ignore();
+      if (RB->getHead() == NULL) {
+	cout << "Number not in tree." << endl;
+      }
+      else {
+      Node* search = RB->findDelete(num, RB->getHead());
+      if (search == NULL) {
+	cout << "Number not in tree." << endl;
+      }
+      else {
+	cout << "Number in tree." << endl;
+      }
+      }
+    }
+    else if (strcmp(input, "read") == 0) {
       //get file path
       cout << "Enter file path." << endl;
       char newFilePath[300];

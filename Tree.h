@@ -25,7 +25,7 @@ class Tree {
   void fixReds(Node* current);
   void cases(Node* N, Node* P);
   //void fix(Node* current);
-  
+
  private:
   Node* head;
   int leftHeight;
